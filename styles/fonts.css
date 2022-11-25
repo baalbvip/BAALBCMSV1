@@ -1,0 +1,29 @@
+@font-face {
+    font-family: "FoundersGrotesk Bold";
+    src: url("./fonts/FoundersGrotesk/FoundersGrotesk-Bold.otf");
+}
+
+@font-face {
+    font-family: "FoundersGrotesk Regular";
+    src: url("./fonts/FoundersGrotesk/FoundersGrotesk-Regular.otf");
+}
+
+@font-face {
+    font-family: "Inter Bold";
+    src: url("./fonts/Inter/Inter-Bold.ttf");
+}
+
+@font-face {
+    font-family: "Inter Regular";
+    src: url("./fonts/Inter/Inter-Regular.ttf");
+}
+
+@font-face {
+    font-family: "SourceCode Bold";
+    src: url("./fonts/SourceCode/SourceCodePro-Bold.ttf");
+}
+
+@font-face {
+    font-family: "SourceCode Regular";
+    src: url("./fonts/SourceCode/SourceCodePro-Regular.ttf");
+}
