@@ -4,30 +4,35 @@
   /*TEXTS*/
   --background-tw: #0282fe;
   --text-white:#fff;
+  --border-1s:#2c2f3d;
+  --background-divs:#1c1e26;
+  --box-divs:#0000003b;
+  --hover-divs:#262934;
+  --button-ui1:red;
 }
 
 
 body{
   background: rgb(15, 16, 21) !important;
   font-family: "Inter Regular";
+  overflow-x: hidden;
 }
 
 .headerIndex .logo{
-  width: 75px;
   height: 37px;
   position: relative;
   max-width: max-content;
-  left: -6px;
+  left: 32px;
 }
 
 .headerIndex{
   display: flex;
-  background: linear-gradient(180deg, black, transparent);
+  background: var(--background-divs);
   padding: 5px;
   z-index: 9;
   position: relative;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 .formInput label{
@@ -77,6 +82,7 @@ body{
   background: transparent;
   max-width: 600px;
   margin: auto;
+  margin-top: 53px;
 }
 
 .login .center .registerNow input{
@@ -84,14 +90,15 @@ body{
   width: 100%;
   padding: 10px;
   font-family: "FoundersGrotesk Regular";
-  background: transparent;
-  border: 0px;
   border-bottom: 1px solid white;
   color: var(--text-white);
   outline: none;
   font-size: 20px;
   line-height: 0;
   text-align: center;
+  border-radius: 37px;
+  border: 2px solid var(--border-1s);
+  background: transparent;
 }
 
 .login .registerNow .title{
@@ -102,12 +109,21 @@ body{
   text-align: center;
 }
 
+.login .registerNow .urlselect{
+  color: var(--text-white);
+  margin: auto;
+  width: max-content;
+  display: block;
+  margin-bottom: 14px;
+  font-family: 'FoundersGrotesk Bold';
+}
+
 .login .background-header .color{
   display: block;
     width: 100%;
     position: absolute;
     top: 0;
-    background: linear-gradient(181deg, #2a2a2a -41%, transparent 50%);
+
     z-index: -1;
     height: 490px;
 }
@@ -156,15 +172,22 @@ body{
   border: 1px solid #707070;
 }
 
+.login .registers:hover{
+  background-color: var(--hover-divs);
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
 .login .registers{
-  background: #1c1e26;
+  background: var(--background-divs);
   padding: 10px;
   border-radius: 12px;
-  box-shadow: 0px 0px 11px #0000003b;
-  margin: 10px;
+  box-shadow: 0px 0px 11px var(--box-divs);
   display: flex;
   color: var(--text-white);
-  width: 23.3%;
+  width: 100%;
+  transition: 0.5s;
+  margin-bottom: 10px;
 }
 
 .login .registers p{
@@ -183,8 +206,9 @@ body{
 }
 
 .login .registersNow{
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4,24.5%);
+  grid-column-gap: 8px;
 }
 
 .login .registers .info{
@@ -195,5 +219,229 @@ body{
   padding-bottom: 10px;
 }
 
+.login .notice .image{
+  width: 100%;
+  height: 300px;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+}
+
+.login .notice .info{
+  display: block;
+  position: absolute;
+}
+
+.login .notice{
+
+  display: block;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.login .notice .info{
+  background: linear-gradient(180deg, #000000a1 10%, transparent 87%);
+  color: var(--text-white);
+}
+
+.login .notice .info .desc{
+  font-size: 13px;
+  opacity: 0.9;
+  line-height: 1;
+}
+
+.login .notice .info .title{
+  font-family: 'FoundersGrotesk Bold';
+  margin-bottom: 1px;
+  font-size: 19px;
+}
+
+.padding{
+  padding: 10px;
+}
+
+.text-title{
+  color: var(--text-white);
+}
+
+.img-center-block{
+  display: block;
+  margin: auto;
+}
+
+.text-opacity{
+  color: var(--text-white);
+  opacity: 0.9;
+}
+
+.text-small{
+  font-size: 12px;
+  display: block;
+}
+
+.divnormal {
+  background: var(--background-divs);
+  border-radius: 12px;
+  position: relative;
+}
+
+.gameNow{
+  background: #1b671d;
+  font-family: 'Inter Bold';
+  border: 0px;
+}
+
+
+
+.login .registerNow .selectUser{
+  display: block;
+  position: relative;
+}
+
+.login .registerNow .gameNow{
+  position: absolute;
+  right: 4.6px;
+  top: 4.9px;
+  padding: 11px;
+  font-size: 14px;
+  border-radius: 92px;
+  color: var(--text-white);
+  line-height: 1.2;
+  text-decoration: none;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.form-register{
+
+}
+
+.button-large{
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 90px;
+  border: 0px;
+}
+
+.color-button-ui{
+  background: var(--button-ui1);
+  color: var(--text-white);
+}
+
+.gameNowBorder{
+  background: #1b671d;
+  border: 2px solid #28a42b !important;
+  font-family: 'Inter Bold';
+  border: 0px;
+}
+
+.form-input input{
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border-radius: 10px;
+  border: 1px solid var(--border-1s);
+  font-size: 13px;
+  color: var(--text-white);
+}
+
+.form-input {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.form-input .labelMovible{
+  color: var(--text-white);
+  font-size: 12px;
+  position: absolute;
+  pointer-events: none;
+  top: 12px;
+  transition: .2s linear;
+  left: 15px;
+  padding-right: 11px;
+  padding-left: 11px;
+  z-index: 99;
+}
+
+
+.form-input input:focus ~ .labelMovible{
+  top: -10px;
+  background:var(--background-divs);
+}
+
+.form-input input:valid ~ .labelMovible{
+  top: -10px;
+  background:var(--background-divs);
+}
+
+.form-input .label-normal{
+  color: var(--text-white);
+  display: block;
+  font-size: 14px;
+  padding-left: 9px;
+  margin-bottom: 5px;
+}
+
+.form-login .title{
+  color: var(--text-white);
+    font-size: 21px;
+    font-family: 'Inter Bold';
+}
+
+.form-input .info{
+  color: var(--text-white);
+    opacity: 0.9;
+    display: block;
+    position: relative;
+    margin-bottom: 6px;
+    font-size: 12px;
+}
+
+
+.login .form-login{
+  display: block;
+  max-width: 700px;
+  margin: auto;
+  position: relative;
+  height: max-content;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  margin-top: 70px;
+}
+
+.login .focus{
+  background: #13151b;
+  padding: 10px;
+  border-radius: 16px;
+  margin-bottom: 17px;
+}
+
+.login .login-header{
+  display: flex;
+  position: relative;
+}
+
+.animation-enter{
+  animation: animationEnter 1s ease;
+}
+
+@keyframes animationEnter{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+.headerIndex .logo{
+  cursor: pointer;
+}
+
 /*END LOGIN*/
+
 
