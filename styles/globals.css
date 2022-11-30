@@ -9,6 +9,8 @@
   --box-divs:#0000003b;
   --hover-divs:#262934;
   --button-ui1:red;
+  --text-error:#ff7979;
+  --text-check:#2fd49185;
 }
 
 
@@ -342,9 +344,23 @@ body{
   padding: 10px;
   background: transparent;
   border-radius: 10px;
-  border: 1px solid var(--border-1s);
+  border: 2px solid var(--border-1s);
   font-size: 13px;
   color: var(--text-white);
+  outline: none;
+}
+
+.form-input input.error{
+  border: 2px solid var(--text-error);
+  color: var(--text-error);
+}
+
+.form-input input.check{
+  border: 2px solid var(--text-check);
+}
+
+.form-input input:focus{
+  border: 2px solid var(--background-tw);
 }
 
 .form-input {
@@ -440,6 +456,36 @@ body{
 
 .headerIndex .logo{
   cursor: pointer;
+}
+
+.pwfail{
+  display: none;
+  font-size: 14px;
+}
+
+.pwfail.error{
+  display: block;
+  color: var(--text-error);
+  margin-bottom: 0px;
+  text-align: center;
+}
+
+.form-input .icon-checkusername{
+  display: none;
+    position: absolute;
+    right: 11px;
+    top: 65px;
+    bottom: 0;
+    height: max-content;
+    width: max-content;
+    margin: auto;
+}
+
+.form-input .icon-checkusername.check{
+  display: block;
+}
+.form-input .icon-checkusername.check svg{
+  color: var(--text-check);
 }
 
 /*END LOGIN*/

@@ -1,11 +1,11 @@
 import Head from "next/head"
 import Image from "next/image"
 import Link from "next/link"
-import Notices from "./components/login/notice"
-import Registers from "./components/login/registers"
+import Notices from "../components/login/notice"
+import Registers from "../components/login/registers"
 import { useState } from "react"
-import Background from "./components/login/background"
-import HeaderIndex from "./components/login/HeaderIndex"
+import Background from "../components/login/background"
+import HeaderIndex from "../components/login/HeaderIndex"
 
 
 const Index = () => {
