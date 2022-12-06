@@ -1,4 +1,4 @@
-import { checkUsedUsername } from "../lib/checkUsers";
+import { checkUsedUsername } from "../lib/users";
 import executeQuery from "../lib/db"
 
 const existUser = async (req, res) => {

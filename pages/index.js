@@ -3,15 +3,16 @@ import Image from "next/image"
 import Link from "next/link"
 import Notices from "../components/login/notice"
 import Registers from "../components/login/registers"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import Background from "../components/login/background"
 import HeaderIndex from "../components/login/HeaderIndex"
+import { filterUsername, toastOptions } from "../lib/observerFunctions"
+import { toast } from "react-toastify"
+import MenuContext from "../context/my-context"
 
 
 const Index = () => {
-
   const [selectUserRegister, setUserRegister] = useState("bobba");
-
   const login = (ev) => {
     ev.preventDefault()
   }
@@ -20,32 +21,28 @@ const Index = () => {
 
   const checkSelectUser = (ev, value) => {
     let keyCode = ev.keyCode;
+
+    ev.target.value = filterUsername(ev.target.value)
     if (keyCode !== 32) {
-      setUserRegister(value)
+      setUserRegister(filterUsername(ev.target.value))
     }
   }
 
-  const preventSpace = (ev) => {
-    if (ev.keyCode == 32) {
+  const checkNext = (ev) => {
+    if (selectUserRegister === "bobba" || selectUserRegister == "") {
       ev.preventDefault()
-    }
-
-    if (ev.target.value.length >= 12) {
-      ev.target.value = ev.target.value.substring(0, 12)
-    }
-  }
-
-
-  const onClickCheckUser = (ev) => {
-    if (selectUserRegister.length == 0 || selectUserRegister == "bobba") {
-      ev.preventDefault()
+      toast("!Opps error con este nombre de usuario", toastOptions({ msg_type: "error" }))
+    } else {
+      toast("Procesando...", toastOptions({ msg_type: "success" }))
     }
   }
+
+
 
   return (
     <div>
       <Head>
-        <title>Bienvenido a la diversion</title>
+        <title>{`${process.env.sitename} | Bienvenido a la diversion!`}</title>
         <link rel="icon" href="/favicon.png"></link>
       </Head>
       <main className="login">
@@ -61,7 +58,7 @@ const Index = () => {
               <div className="selectUser">
 
 
-                <input onKeyUp={(ev) => { checkSelectUser(ev, ev.target.value) }} onKeyDownCapture={(ev) => { preventSpace(ev) }} /> <Link className="gameNow" href={"/register/" + selectUserRegister} as={"/register/" + selectUserRegister}>Registrarme</Link>
+                <input onChange={(ev) => { checkSelectUser(ev, ev.target.value) }} /> <Link onClick={checkNext} className="gameNow" href={"/register/" + selectUserRegister} as={"/register/" + selectUserRegister}>Registrarme</Link>
               </div>
             </div>
             <div className="row">
@@ -94,22 +91,6 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="loginModal modal">
-            <form method="POST" name="login">
-
-              <div className="formInput">
-                <label>Usuario</label>
-                <input />
-              </div>
-
-              <div className="formInput">
-                <label>Contraseña</label>
-                <input />
-              </div>
-
-              <button onClick={login}></button>
-            </form>
-          </div>
         </div>
       </main>
     </div>

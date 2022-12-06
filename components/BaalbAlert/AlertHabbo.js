@@ -1,13 +1,30 @@
+import React, { useEffect, useState } from "react"
+import { useAlert } from "./userAlert"
+
+let alerts = "xd"
+
 function AlertHabbo() {
-    return (<div className="baalbalert">aqui</div>)
+    
+    let [test, setTest] = useState([])
+    useEffect(() => {
+
+        console.log(alerts)
+        setTest(alerts)
+    }, [alerts])
+
+    return (<p>{test}</p>)
+
+    function newAlert() {
+
+
+    }
+
+  
 }
 
-function newAlert() {
-    return (<div className="newalert">Hola</div>)
-}
 
 
-export { AlertHabbo, newAlert }
+export default AlertHabbo
 
 
 

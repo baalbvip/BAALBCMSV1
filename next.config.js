@@ -11,8 +11,12 @@ const nextConfig = {
     sitename: "Habbine",
     domain: DOMAIN,
     http: HTTP,
+    keySession: "BAALBCMS_78f4sad5da9$we7823234",
     url: URL,
-    DB_HOST : "localhost"
+    DB_HOST: "localhost",
+    apiLook: "https://habbo.city/habbo-imaging/avatarimage?figure=",
+    walletCoins:{
+    }
   }
 }
 
