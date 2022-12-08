@@ -10,6 +10,7 @@
   --hover-divs:#262934;
   --button-ui1:red;
   --text-error:#ff7979;
+  --color-reaction:#ff6262;
   --text-check:#2fd49185;
 
   --loading-unenter:2px solid #ffffff6e;
@@ -597,7 +598,6 @@ button .loading{
 /* HOME ME*/
 .header-me .image{
   width: 100%;
-  height: 200px;
   position: relative;
   overflow: hidden;
   background: #203351;
@@ -615,12 +615,41 @@ button .loading{
   position: absolute;
 }
 
-.header-me .options{
+.header-me .image .center{
+  display: block;
+  position: relative;
+  right: 0;
+  left: 0;
+  width: max-content;
+  margin: auto;
+  bottom: 0;
+  top: 0;
+  height: max-content;
+  color: var(--text-white);
+  padding-top: 11px;
+}
+
+.header-me-bottom{
+  display: block;
+    position: sticky;
+    top: 0;
+    z-index: 9;
+}
+
+.header-me .image .center p{
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+  filter: drop-shadow(0px 0px 4px black);
+  font-family: 'Inter Bold';
+}
+
+.header-me-bottom .options{
   display: flex;
   flex-flow: wrap;
 }
 
-.header-me .options .space{
+.header-me-bottom .options .space{
   display: block;
   width: 50%;
   background: var(--background-divs);
@@ -629,7 +658,7 @@ button .loading{
   padding-left: 10px;
 }
 
-.header-me .options .space .game{
+.header-me-bottom .options .space .game{
   display: block;
   padding: 10px;
   background: #23b964;
@@ -649,7 +678,7 @@ button .loading{
   font-size: 14px;
 }
 
-.header-me .options .button{
+.header-me-bottom .options .button{
   padding: 10px;
   color: var(--text-white);
   text-decoration: none;
@@ -660,7 +689,7 @@ button .loading{
   margin-right: 5px;
 }
 
-.header-me .options .button::after{
+.header-me-bottom .options .button::after{
   content: "";
   display: inline;
   height: 100%;
@@ -671,23 +700,23 @@ button .loading{
 }
 
 
-.header-me .options .button span{
+.header-me-bottom .options .button span{
   position: relative;
   font-family: 'Inter Bold';
 }
 
-.header-me .options .button img{
+.header-me-bottom .options .button img{
   position: relative;
   top: -3px;
 }
 
-.header-me .options .button:hover{
+.header-me-bottom .options .button:hover{
   background-color: var(--border-1s);
   padding-right: 15px;
   padding-left: 15px;
 }
 
-.header-me .options .button.active{
+.header-me-bottom .options .button.active{
   background-color: var(--border-1s);
   padding-right: 15px;
   padding-left: 15px;
@@ -700,6 +729,7 @@ button .loading{
   max-width: 1100px;
   margin: auto;
   margin-top: 15px;
+  min-height: 100vh;
 }
 
 .profile-small{
@@ -889,11 +919,27 @@ button .loading{
     margin: auto;
 }
 
+.container-me .friendsOnline.profiles .nofound{
+  font-size: 12px;
+  margin: initial;
+  padding: 10px;
+  opacity: 0.5;
+}
+
+
+
 .container-me .friendsOnline .friend{
   padding: 10px;
   display: block;
   text-align: center;
   width: 16.66%;
+}
+
+.container-me .friendsOnline.profiles .friend{
+  padding: 10px;
+  display: block;
+  text-align: center;
+  width: 33.33%;
 }
 
 .container-me .friendsOnline .name{
@@ -1099,5 +1145,131 @@ button .loading{
   }
 }
 
+.container-me .post .input{
+  position: relative;
+  color: var(--text-white);
+  padding: 7px;
+  border: 1px solid var(--border-1s);
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  max-height: 155px;
+  overflow: auto;
+  outline: none;
+  font-size: 14px;
+}
 
+.container-me .post .upload{
+  display: flex;
+  max-width: max-content;
+  margin-left: auto;
+}
+
+.container-me .post .upload .button-upload{
+  padding: 10px;
+  border-radius: 32px;
+  padding-right: 14px;
+  padding-left: 14px;
+  font-size: 14px;
+  border: 0px;
+  color: var(--text-white);
+  background: var(--background-tw);
+}
+
+.container-me button .loading{
+    width: 16px;
+    height: 16px;
+    position: relative;
+    border: var(--loading-unenter);
+    border-bottom: var(--loading-enter);
+    border-radius: 90px;
+    top: 3.5px;
+    left: 5px;
+}
+
+.container-posts .post .info{
+  display: block;
+  padding-right: 15px;
+  padding-left: 64px;
+  position: relative;
+}
+
+.container-posts .post .photo{
+  background-position: center !important;
+  position: absolute;
+  border: 1px solid var(--border-1s);
+}
+
+.container-posts .post .content{
+  display: block;
+  color: var(--text-white);
+  font-size: 14px;
+  padding-left: 64px;
+}
+
+.container-posts .post .report{
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 10px;
+  border-radius: 97px;
+  background: transparent;
+  border: 0px;
+  color: var(--text-white);
+  font-size: 19px;
+}
+
+.container-posts .post .time{
+  display: block;
+  color: var(--text-white);
+  opacity: 0.7;
+  font-size: 12px;
+  margin-bottom: 10px;
+  position: relative;
+  top: 3px;
+}
+
+.container-posts .post .username{
+  color: var(--text-white);
+  text-decoration: none;
+  font-family: 'Inter Bold';
+  font-size: 15px;
+}
+
+.container-posts .post .options{
+  display: flex;
+  text-align: center;
+  width: max-content;
+  padding-top: 16px;
+  padding-left: 60px;
+}
+
+.container-posts .post .reaction{
+  background: transparent;
+  border: 0px;
+  color: var(--text-white);
+  font-size: 22px;
+}
+
+.container-posts .post .reaction .like{
+  display: none;
+}
+
+.container-posts .post .reaction.like .like{
+  display: inline-block;
+  color: var(--color-reaction);
+}
+
+.container-posts .post .reaction.like span{
+  color: var(--color-reaction);
+}
+
+.container-posts .post .reaction.like .unlike{
+  display: none;
+}
+
+.container-posts .post .reaction .count{
+  font-size: 14px;
+}
 /*END HOME*/

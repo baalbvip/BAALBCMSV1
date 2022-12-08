@@ -34,7 +34,16 @@ const HeaderMe = () => {
         <div className="header-me">
             <div className="image">
                 <div className="image-left"></div>
+
+                <div className="center">
+                    <img src="/images/logoindex.png" />
+
+                    <p>Hay 10 usuarios jugando!</p>
+                </div>
             </div>
+        </div>
+
+        <div className="header-me-bottom">
             <div className="options">
                 <div className="space">
                     <Link className={`button ${pageActive.my}`} href="/@baalb" as="/@baalb"> <img className="look" src={look(userInfo.look)} /> <span>{userInfo?.username}</span></Link>
@@ -47,7 +56,6 @@ const HeaderMe = () => {
                     <Link className="game" href="/game" as="/game">Jugar ahora!</Link>
                 </div>
             </div>
-
         </div>
     </>)
 }

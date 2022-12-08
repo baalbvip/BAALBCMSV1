@@ -1,6 +1,7 @@
 import executeQuery from "./db"
-import jwt from "jsonwebtoken"
+import jwt, { verify } from "jsonwebtoken"
 import { serialize } from "cookie";
+
 
 export const checkUsedUsername = async (username) => {
     let used = false;
@@ -58,6 +59,54 @@ export const createSession = (params) => {
 
 
 export const infoUser = async (user_id) => {
-    let response = await executeQuery({ query: `SELECT id,username,credits,points,mail,look,account_created,motto,gender,rank,online FROM users WHERE id='${user_id}'`, values: "" })
+    let response = await executeQuery({ query: `SELECT id,username,credits,pixels,points,mail,look,account_created,motto,gender,rank,online FROM users WHERE (id='${user_id}' or username='${user_id}')`, values: "" })
     return response[0]
+}
+
+export const postsUser = async (user_id, last = undefined) => {
+
+    if (last == undefined) {
+        let response = await executeQuery({ query: `SELECT * FROM cms_posts WHERE owner_id='${user_id}'` })
+        return response
+    } else {
+
+    }
+}
+
+export const friendsUser = async (user_id, watch = undefined) => {
+    if (watch == undefined) {
+        let response = await executeQuery({ query: `SELECT * FROM messenger_friendships WHERE user_one_id='${user_id}' or user_two_id='${user_id}'` })
+        let rows = response.length
+
+        let newResponse = []
+
+        for (var i = 0; i < rows; i++) {
+            let responseUser, searchId
+
+            if (response[i].user_one_id !== user_id) {
+                searchId = response[i].user_one_id
+            } else {
+                searchId = response[i].user_two_id
+            }
+
+            responseUser = await infoUser(searchId)
+
+            newResponse.push(responseUser)
+
+        }
+
+        return newResponse
+    } else {
+
+    }
+}
+
+export function mySession(req) {
+    let myId = false
+    let { session } = req.cookies
+    if (session) {
+        let responseSession = verify(session, process.env.keySession)
+        myId = responseSession.params.user_id
+    }
+    return myId
 }

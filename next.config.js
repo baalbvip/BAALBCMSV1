@@ -15,7 +15,13 @@ const nextConfig = {
     url: URL,
     DB_HOST: "localhost",
     apiLook: "https://habbo.city/habbo-imaging/avatarimage?figure=",
-    walletCoins:{
+    walletCoins: {
+    },
+    database: {
+      host: "localhost",
+      user: "root",
+      password: "",
+      database: "baalbcms"
     }
   }
 }

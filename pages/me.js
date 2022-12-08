@@ -4,6 +4,8 @@ import { userInfoContext } from "../context/contextInfo"
 import { look } from "../lib/observerFunctions"
 import { IoLogoDiscord, IoLogoFacebook, IoLogoInstagram } from "react-icons/io5"
 import { useEffect, useState } from "react"
+import ProfileSmall from "../components/me/ProfileSmall"
+import Friends from "../components/me/Friends"
 
 const Me = () => {
 
@@ -16,24 +18,7 @@ const Me = () => {
         <div className="margin-me">
             <div className="row">
                 <div className="col-md-7">
-                    <div className="profile-small">
-                        <div className="image">
-                            <div className="left">
-                                <div className="look" style={{ background: `url(${look(userInfo.look, "&size=l&direction=2&action=wav")})` }}></div>
-                            </div>
-                            <div className="right">
-                                <div className="container">
-                                    <p className="username">{userInfo.username}</p>
-                                    <p className="motto">{userInfo.motto}</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="wallet">
-                            <div className="value credits"><img src="/images/wallet/credits.png" /> {userInfo.credits}</div>
-                            <div className="value duckets"><img src="/images/wallet/duckets.png" /> {userInfo.pixels}</div>
-                            <div className="value diamond"><img src="/images/wallet/diamond.png" /> {userInfo.points}</div>
-                        </div>
-                    </div>
+                    <ProfileSmall userInfo={userInfo} />
                     <div className="container-me">
                         <p className="title">Tus amig@s</p>
                         <p className="desc">Ve tus amigos en linea</p>
@@ -41,13 +26,7 @@ const Me = () => {
                         <div className="friendsOnline">
 
                             {userInfo.friends?.length == 0 ? (<p className="nofound">!Opps no tienes amigos <Link href="/social" as="/social">Buscar amigos</Link></p>) : ""}
-                            {userInfo.friends?.map((response, key) => (
-                                <div className="friend" key={key}>
-                                    <div className="look" style={{ background: `url(${look(response.look, "&size=m&direction=2&action=wav")})` }}></div>
-                                    <Link href="#" className="name">@{response.username.length > 7 ? response.username.substring(0, 7) + "..." : response.username}</Link>
-                                    <i className="online">{response.online}</i>
-                                </div>
-                            ))}
+                            {userInfo.friends?.map((response, key) => (<Friends key={key} response={response} />))}
                         </div>
                     </div>
 
