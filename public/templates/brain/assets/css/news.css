@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+* {
+  margin: 0px;
+  padding: 0px;
+  outline: 0px;
+  list-style: none;
+  text-decoration: none;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  background: #ededed;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #00000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #171616;
+  border-radius: 50px;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+#container .back {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 15px;
+  color: #424251;
+}
+
+#container .back svg {
+  stroke: #424251;
+  fill: none;
+  stroke-width: 2px;
+  width: 2em;
+}
+
+
+#container .wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+}
+
+#container .wrapper .read {
+  height: 100%;
+  width: 30em;
+  padding: 10px 25px;
+  background: #00000026;
+  color: #424251;
+}
+
+#container .wrapper .read .title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+#container .wrapper .read .divider {
+  width: 100%;
+  height: 1px;
+  background-color: #424251;
+  margin: 5px 0px;
+  margin-bottom: 10px;
+}
+
+#container .wrapper .read p {
+  font-size: 15px;
+}

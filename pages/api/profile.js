@@ -5,6 +5,8 @@ const profile = async (req, res) => {
     let response = {}
     if (user) {
         response = await infoUser(user)
+
+  
         let userId = response.id;
         let posts = await postsUser(userId)
         response.posts = posts

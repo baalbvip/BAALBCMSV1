@@ -6,16 +6,28 @@ import { look, timePosts } from "../../lib/observerFunctions"
 
 const Posts = ({ state }) => {
 
-    let search = typeof state.posts !== undefined ? state.posts : state.myPosts
+    let search
+
+    console.log(state.posts)
+
+    if (state.posts == undefined) {
+        search = state.myPosts.concat().reverse()
+    } else {
+        search = state.posts
+    }
+
 
     function sendReaction({ ev, key, post_id }) {
         ev.stopPropagation()
+        let setNew = search
+        let setting
 
-        let responsePosts = typeof state.posts !== undefined ? state.posts : state.myPosts
-
-        let setNew = responsePosts
-
-        const setting = typeof state.setPosts !== undefined ? state.setPosts : state.setMyPosts
+        if (state.posts == undefined) {
+            setting = state.setMyPosts
+        } else {
+            setting = state.setPosts
+        }
+    
 
         let data = { type: 'post', id: post_id }
         axios.post("/api/reaction", data).then((response) => { return response.data }).then(response => {
@@ -42,7 +54,7 @@ const Posts = ({ state }) => {
     return search?.map((response, key) => (
         <div className="post container-me" key={key}>
             <div className="top">
-                <div className="photo" style={{ background: `url(${look(response.user.look)})` }}></div>
+                <div className="photo" style={{ background: `url(${look(response.user?.look)})` }}></div>
                 <div className="info">
                     <Link className="username" href={`@${response.user.username}`}>@{response.user.username}</Link>
                     <span className="time">Publicado el {timePosts(response.time)}</span>
@@ -52,7 +64,7 @@ const Posts = ({ state }) => {
             </div>
 
             <div className="content">
-                <span className="text">{response.desc_text} || {state.count}</span>
+                <span className="text">{response.desc_text} {state.count}</span>
 
             </div>
 

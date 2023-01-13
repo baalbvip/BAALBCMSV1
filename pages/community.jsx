@@ -1,5 +1,7 @@
 import axios from "axios"
+import Link from "next/link"
 import { useEffect, useState } from "react"
+import DiscoveryUser from "../components/me/DiscoveryUser"
 import HeaderMe from "../components/me/HeaderMe"
 import Posts from "../components/me/Posts"
 import { addClass, getPosts, removeClass } from "../lib/observerFunctions"
@@ -9,7 +11,7 @@ const Community = () => {
     const [upload, setUpload] = useState({ text: undefined })
     const [posts, setPosts] = useState([])
     const [myPosts, setMyPosts] = useState([])
-
+    const [discovery, setDiscovery] = useState([])
     const [count, setCount] = useState(0)
 
     function writing(ev) {
@@ -25,15 +27,19 @@ const Community = () => {
         if (upload.text !== undefined) {
             axios.post("/api/uploadPost", upload).then(response => { return response.data }).then(response => {
                 removeClass(ev.target, "await")
+                setUpload("")
 
                 if (response.status) {
-                    setMyPosts([...myPosts, response.post[0]])
+                    document.querySelector(".post .input").innerText = ""
+                    setMyPosts(myPosts => [...myPosts, response.post[0]])
                 }
 
             }).catch((err) => {
                 removeClass(ev.target, "await")
 
             })
+        } else {
+            removeClass(ev.target, "await")
         }
     }
 
@@ -47,8 +53,13 @@ const Community = () => {
         }())
 
 
+        axios.post("/api/discovery").then(response => { return response.data }).then(response => {
+            setDiscovery(response)
+        })
 
-    }, ["enter"])
+
+
+    }, [])
 
 
 
@@ -78,15 +89,20 @@ const Community = () => {
 
                     <div className="col-md-4">
                         <div className="container-me">
-                            <p className="title">Tus amigos</p>
-                        </div>
-
-                        <div className="container-me">
                             <p className="title">Lugares interesantes</p>
+
+                            <div className="optionsLugares">
+                                <Link href="x"><img src="/images/me/home.png" /></Link>
+                                <Link href="x"><img src="/images/me/team.png" /></Link>
+                            </div>
                         </div>
 
                         <div className="container-me">
                             <p className="title">Quizas conoces</p>
+
+                            <div className="friendsOnline profiles discovery">
+                                <DiscoveryUser params={discovery} />
+                            </div>
                         </div>
                     </div>
                 </div>

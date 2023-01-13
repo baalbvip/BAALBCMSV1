@@ -59,7 +59,7 @@ export const createSession = (params) => {
 
 
 export const infoUser = async (user_id) => {
-    let response = await executeQuery({ query: `SELECT id,username,credits,pixels,points,mail,look,account_created,motto,gender,rank,online FROM users WHERE (id='${user_id}' or username='${user_id}')`, values: "" })
+    let response = await executeQuery({ query: `SELECT id,username,credits,pixels,points,mail,look,account_created,motto,gender,rank,online FROM users WHERE (id='${user_id}' or username='${user_id}')` })
     return response[0]
 }
 
@@ -67,6 +67,13 @@ export const postsUser = async (user_id, last = undefined) => {
 
     if (last == undefined) {
         let response = await executeQuery({ query: `SELECT * FROM cms_posts WHERE owner_id='${user_id}'` })
+
+        let info = await infoUser(user_id)
+
+        for (var i = 0; i < response.length; i++) {
+            response[i].user = info
+        }
+
         return response
     } else {
 
@@ -109,4 +116,24 @@ export function mySession(req) {
         myId = responseSession.params.user_id
     }
     return myId
+}
+
+export async function myFriends(type, user_id) {
+    let response = []
+    switch (type) {
+        case 'ids':
+            var queryResponse = await executeQuery({ query: `SELECT * FROM messenger_friendships WHERE (user_one_id='${user_id}' or user_two_id='${user_id}')` })
+
+            for (var i = 0; i < queryResponse.length; i++) {
+                if (queryResponse[i].user_one_id !== user_id) {
+                    response.push(queryResponse[i].user_one_id)
+                } else {
+                    response.push(queryResponse[i].user_two_id)
+                }
+            }
+
+            break;
+    }
+
+    return response
 }

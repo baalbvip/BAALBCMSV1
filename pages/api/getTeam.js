@@ -37,11 +37,11 @@ const getTeam = async (req, res) => {
     let response = []
     switch (params) {
         case 'admin':
-            response = await infoTeam(5, 9)
+            response = await infoTeam(10, 17)
             break;
 
         case 'alfa':
-            response = await infoTeam(2, 4)
+            response = await infoTeam(2, 9)
             break;
     }
 

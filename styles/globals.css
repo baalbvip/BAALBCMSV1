@@ -1272,4 +1272,96 @@ button .loading{
 .container-posts .post .reaction .count{
   font-size: 14px;
 }
+
+.discovery .user .photo{
+  width: 50px;
+    height: 50px;
+    background-position: center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-color: var(--border-1s);
+    border-radius: 96px;
+    position: absolute;
+    left: 8px;
+    background-color: #fafafa4f !important;
+}
+
+.discovery .user{
+  display: block;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: url(https://i.pinimg.com/736x/c6/39/63/c6396313d7b5292afabf95e21e54abdb.jpg);
+  width: 100%;
+  background-position: center;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.discovery .user:last-of-type{
+  margin-bottom: 0px;
+}
+
+.discovery .user .go-profile{
+  display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    color: var(--text-white);
+    border: 1px solid;
+    border-radius: 100px;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    margin: auto;
+    line-height: 1.9;
+}
+
+.discovery .blur{
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  left: 0;
+  top: 0;
+  background-color: #0000004d;
+}
+
+.discovery .user .info{
+  position: relative;
+  z-index: 2;
+  color: var(--text-white);
+  width: 100%;
+  display: block;
+  padding-left: 70px;
+}
+
+.discovery .user .info a ,i {
+  display: block;
+}
+
+.discovery .user .info .username{
+  text-decoration: none;
+  font-family: "inter bold";
+  color: var(--text-white);
+}
+
+.discovery .user .info .motto{
+  font-size: 12px;
+}
+
+
+.optionsLugares a{
+  padding: 1px;
+  text-align: center;
+  margin-right: 10px;
+}
+
+
+
+
 /*END HOME*/

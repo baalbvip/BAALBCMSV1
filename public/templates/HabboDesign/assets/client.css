@@ -1,0 +1,186 @@
+.client__buttons {
+    left: 12px;
+    position: absolute;
+    top: 12px;
+    z-index: 630;
+}
+.client__buttons button:last-child, .client__buttons button:not(:first-child):not(:last-child) {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+.client__buttons button:first-child, .client__buttons button:not(:first-child):not(:last-child) {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+.client__buttons .client__close {
+    padding: 4.5px 6px;
+}
+.client__buttons button {
+    box-shadow: 0 3px 0 1px rgb(0 0 0 / 30%);
+    background-color: #ffb900;
+    border-color: #ffea00;
+    color: #000;
+    font-size: 12px;
+    padding: 6px 12px;
+    display: block;
+    float: left;
+}
+.client__buttons button, .register-banner__button {
+    line-height: 1.2;
+    border-radius: 5px;
+    margin-bottom: 4px;
+    border-width: 2px;
+    border-style: solid;
+    text-align: center;
+    text-transform: uppercase;
+}
+.client__close__text {
+    position: relative;
+    padding-left: 22px;
+    line-height: 17px;
+}
+.client__fullscreen__icon {
+    display: block;
+}
+.icon--fullscreen {
+    background-image: url(img/sprite.png);
+    background-position: -141px -446px;
+    width: 15px;
+    height: 14px;
+}
+.icon--arrow__next, .icon--arrow__prev, .icon--close, .icon--facebook, .icon--fullscreen, .icon--fullscreen-back, .icon--heart, .icon--like, .icon--report, .icon--rss, .icon--twitter, .icon--youtube {
+    display: inline-block;
+    font-style: normal;
+}
+user agent stylesheet
+i {
+    font-style: italic;
+}
+.ng-cloak, .ng-hide:not(.ng-hide-animate), .x-ng-cloak, [data-ng-cloak], [ng-cloak], [ng\:cloak], [x-ng-cloak] {
+    display: none!important;
+}
+.client__fullscreen__icon {
+    display: block;
+}
+.icon--fullscreen-back {
+    background-image: url(img/sprite.png);
+    background-position: -158px -446px;
+    width: 15px;
+    height: 14px;
+}
+.client__buttons {
+    left: 12px;
+    position: absolute;
+    top: 12px;
+    z-index: 630
+}
+.client__buttons button {
+    box-shadow: 0 3px 0 1px rgba(0, 0, 0, .3);
+    background-color: #ffb900;
+    border-color: #ffea00;
+    color: #000;
+    font-size: 12px;
+    padding: 6px 12px;
+    display: block;
+    float: left
+}
+.client__buttons button:hover {
+    background-color: #ffd400;
+    border-color: #fffd70
+}
+.client__buttons button:active,
+.client__buttons button:disabled {
+    background-color: #f89400;
+    border-color: #ffce37
+}
+.client__buttons button:active {
+    box-shadow: 0 1px 0 1px rgba(0, 0, 0, .3);
+    -webkit-transform: translate(0, 2px);
+    transform: translate(0, 2px)
+}
+.client-reload__button,
+.photo-delete {
+    box-shadow: 0 3px 0 1px rgba(0, 0, 0, .3)
+}
+.client__buttons button:first-child,
+.client__buttons button:not(:first-child):not(:last-child) {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0
+}
+.client__buttons button:last-child,
+.client__buttons button:not(:first-child):not(:last-child) {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0
+}
+.client__buttons button:not(:last-child) {
+    margin-right: 4px
+}
+.client__buttons .client__close {
+    padding: 4.5px 6px
+}
+.client__buttons .client__fullscreen {
+    padding-left: 6px;
+    padding-right: 6px
+}
+.client__close__text {
+    position: relative;
+    padding-left: 22px;
+    line-height: 17px
+}
+.client-closed,
+.client-error {
+    -webkit-align-items: center;
+    padding: 48px 12px
+}
+.client__close__text:before {
+    background-image: url(img/sprite.png);
+    background-position: -223px -156px;
+    width: 16px;
+    height: 16px;
+    content: '';
+    display: block;
+    margin-top: -8px;
+    position: absolute;
+    top: 50%;
+    left: 0
+}
+.client-closed,
+.client-error,
+.client__frame {
+    height: 100%;
+    width: 100%;
+    z-index: 610;
+    position: absolute;
+    left: 0
+}
+@media (-webkit-min-device-pixel-ratio: 2),
+(min--moz-device-pixel-ratio: 2),
+(min-device-pixel-ratio: 2),
+(min-resolution: 192dpi),
+(min-resolution: 2dppx) {
+    .client__close__text:before {
+        background-image: url(img/sprite@2x.png);
+        background-position: -280px -143px;
+        background-size: 525px 411px
+    }
+}
+.client__close__text:active,
+.client__close__text:hover {
+    border-bottom-style: solid;
+    border-bottom-width: 0
+}
+.client__fullscreen__icon {
+    display: block
+}
+.client-closed {
+    top: 0;
+    -ms-flex-align: center;
+    align-items: center;
+    display: flex;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center
+}
+.client-closed .hotel-closed {
+    max-width: 620px
+}

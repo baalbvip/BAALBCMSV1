@@ -37,6 +37,7 @@ export async function getPosts({ from, last = false, user_id = undefined }) {
 
             response[i].user = await infoUser(owner_id)
             response[i].youLike = await likeExists(user_id, response[i].id, "post")
+            response[i].likes = await likesPosts(response[i].id)
         }
 
     }
@@ -46,4 +47,10 @@ export async function getPosts({ from, last = false, user_id = undefined }) {
     }
 
     return response
+}
+
+
+export async function likesPosts(id, type = "post") {
+    let likes = await executeQuery({ query: "SELECT COUNT(*) as likes FROM cms_likes WHERE type=? and post_id=?", values: [type, id] })
+    return likes[0]?.likes
 }

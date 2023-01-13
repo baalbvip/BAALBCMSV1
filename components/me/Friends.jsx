@@ -6,7 +6,7 @@ const Friends = (props) => {
     return (
         <div className="friend">
             <div className="look" style={{ background: `url(${look(response.look, "&size=m&direction=2&action=wav")})` }}></div>
-            <Link href="#" className="name">@{response.username.length > 7 ? response.username.substring(0, 7) + "..." : response.username}</Link>
+            <Link href={`@${response.username}`} className="name">@{response.username.length > 7 ? response.username.substring(0, 7) + "..." : response.username}</Link>
             <i className="online">{response.online}</i>
         </div>
     )

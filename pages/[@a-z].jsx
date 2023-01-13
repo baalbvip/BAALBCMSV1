@@ -3,6 +3,7 @@ import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import Friends from "../components/me/Friends"
 import HeaderMe from "../components/me/HeaderMe"
+import Posts from "../components/me/Posts"
 import ProfileSmall from "../components/me/ProfileSmall"
 
 const Profiles = () => {
@@ -34,9 +35,9 @@ const Profiles = () => {
                 <div className="col-md-7">
                     <ProfileSmall userInfo={userInfo} />
 
-                    <div className="container-me">
+                    <div className="container-posts">
                         <p className="title">Publicaciones</p>
-                        <span className="desc">Estas son algunas placas de este usuario</span>
+                        {userInfo?.posts?.length >= 1 ? <Posts state={userInfo} /> : ""}
                     </div>
                 </div>
 

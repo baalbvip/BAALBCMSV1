@@ -46,7 +46,7 @@ const HeaderMe = () => {
         <div className="header-me-bottom">
             <div className="options">
                 <div className="space">
-                    <Link className={`button ${pageActive.my}`} href="/@baalb" as="/@baalb"> <img className="look" src={look(userInfo.look)} /> <span>{userInfo?.username}</span></Link>
+                    <Link className={`button ${pageActive.my}`} href="/@baalb" as={`/@${userInfo?.username}`}> <img className="look" src={look(userInfo.look)} /> <span>{userInfo?.username}</span></Link>
                     <Link className={`button ${pageActive.me}`} href="/me" as="/me"><img src="/images/me/home.png" /> <span>Home</span></Link>
                     <Link className={`button ${pageActive.community}`} href="/community" as="/community"><img src="/images/me/community.png" /> <span>Comunidad</span></Link>
                     <Link className={`button ${pageActive.tops}`} href="/tops" as="/tops"><img src="/images/me/tops.png" /> <span>Tops</span></Link>
